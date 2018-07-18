@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114949773676269452}
   - component: {fileID: 114132136452868114}
   m_Layer: 0
-  m_Name: Player_LanesLocked
+  m_Name: Player_FixedMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
