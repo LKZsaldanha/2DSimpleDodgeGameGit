@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public int highScore = 0;
     public bool soundOn = true;
 
+    public float gameSpeed = 5f;
+
     public bool allowGameplayInputs = true;
 
     public float slowMotionValue = 5f;
