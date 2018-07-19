@@ -39,8 +39,8 @@ public class WaveSpawner : MonoBehaviour {
             lastwaveTime -= Time.deltaTime;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.A))
+        //Debug para aumento de dificuldade
+        if (Input.GetKeyDown(KeyCode.W))
         {
             RaiseDifficulty(nextDifficulty);
         }
