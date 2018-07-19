@@ -9,10 +9,12 @@ public class PlayerFixedMovement : MonoBehaviour
 
 
     private float[] laneX;
-    private int desiredlaneIndex = 0;
+    private int desiredLaneIndex = 0;
+
 
     private Rigidbody2D rb;
     private GameManager gm;
+
 
 
     private void Awake()
@@ -36,7 +38,8 @@ public class PlayerFixedMovement : MonoBehaviour
         {
             laneX[i] = (i + 1 - middleLaneIndex) * laneWidth;
         }
-        desiredlaneIndex = middleLaneIndex;
+        desiredLaneIndex = middleLaneIndex -1;
+
     }
 
     private void Update()
@@ -47,6 +50,13 @@ public class PlayerFixedMovement : MonoBehaviour
             {
                 GetInput();
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (gm.allowGameplayInputs)
+        {
             MoveToLane();
         }
     }
@@ -66,7 +76,7 @@ public class PlayerFixedMovement : MonoBehaviour
     private void MoveToLane()
     {
         Vector2 targetPosition = rb.position;
-        targetPosition = laneX[desiredlaneIndex] * Vector2.right;
+        targetPosition = laneX[desiredLaneIndex] * Vector2.right;
 
         Vector2 moveVector = Vector2.zero;
         moveVector.x = (targetPosition - rb.position).x * speed;
@@ -76,23 +86,28 @@ public class PlayerFixedMovement : MonoBehaviour
 
     private void ChangeLane(bool goingRight)
     {
-        desiredlaneIndex += (goingRight) ? 1 : -1;
-        desiredlaneIndex = Mathf.Clamp(desiredlaneIndex, 0, numberOfLanes - 1);
+        desiredLaneIndex += (goingRight) ? 1 : -1;
+        desiredLaneIndex = Mathf.Clamp(desiredLaneIndex, 0, numberOfLanes - 1);
     }
 
     public void PlayerGoRight()
     {
         if (gm.allowGameplayInputs)
         {
-            desiredlaneIndex += 1;
+            if(desiredLaneIndex < numberOfLanes - 1)
+            {
+                desiredLaneIndex += 1;
+            }
         }
     }
     public void PlayerGoLeft()
     {
         if (gm.allowGameplayInputs)
         {
-            desiredlaneIndex += -1;
+            if (desiredLaneIndex > 0)
+            {
+                desiredLaneIndex += -1;
+            }
         }
     }
-
 }
