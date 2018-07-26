@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFixedMovement : MonoBehaviour
 {
@@ -14,8 +15,6 @@ public class PlayerFixedMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private GameManager gm;
-
-
 
     private void Awake()
     {
@@ -41,35 +40,13 @@ public class PlayerFixedMovement : MonoBehaviour
         desiredLaneIndex = middleLaneIndex -1;
 
     }
-
-    private void Update()
-    {
-        if (gm.allowGameplayInputs)
-        {
-            if (!gm.mobileVersion)
-            {
-                GetInput();
-            }
-        }
-    }
+  
 
     private void FixedUpdate()
     {
         if (gm.allowGameplayInputs)
         {
             MoveToLane();
-        }
-    }
-
-    private void GetInput()
-    {
-        if (Input.GetButtonDown("Left"))
-        {
-            ChangeLane(false);
-        }
-        else if (Input.GetButtonDown("Right"))
-        {
-            ChangeLane(true);
         }
     }
 
@@ -100,6 +77,7 @@ public class PlayerFixedMovement : MonoBehaviour
             }
         }
     }
+
     public void PlayerGoLeft()
     {
         if (gm.allowGameplayInputs)

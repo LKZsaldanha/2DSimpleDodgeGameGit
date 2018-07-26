@@ -2,9 +2,15 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
+
+
+public enum MobileInputType { SWIPE, TAP };
+
 public class GameManager : MonoBehaviour {
 
     public bool mobileVersion = false;
+    public MobileInputType mobileInputType = MobileInputType.SWIPE;
 
     public int highScore = 0;
     public bool soundOn = true;
