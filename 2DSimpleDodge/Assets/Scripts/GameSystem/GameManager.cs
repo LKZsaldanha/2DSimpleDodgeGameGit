@@ -5,6 +5,8 @@ using System.Collections;
 
 
 
+
+public enum UIState { START, GAME, PAUSE, END };
 public enum MobileInputType { SWIPE, TAP };
 
 public class GameManager : MonoBehaviour {
@@ -17,17 +19,18 @@ public class GameManager : MonoBehaviour {
 
     public float gameSpeed = 5f;
 
-    public bool allowGameplayInputs = true;
+    public bool allowGameplayInputs = false;
 
     public float slowMotionValue = 5f;
     public float endGameDelay = 2f;
 
-    private bool isPaused = false;
-
-    
+    private bool isPaused = false;    
 
     private float previousTimeScale;
     private float previousFixedDeltaTime;
+
+    public UIState uiState = UIState.START;
+    public bool gameStarted = false;
 
     private void Start()
     {
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour {
     
     public void EndGame()
     {
+        uiState = UIState.END;
         int currentScore = GetComponent<Score>().score;
         if (currentScore > highScore)
         {
@@ -93,6 +97,13 @@ public class GameManager : MonoBehaviour {
         Time.fixedDeltaTime = 0f;
     }
 
+    public void StartGame()
+    {
+        gameStarted = true;
+        allowGameplayInputs = true;
+        uiState = UIState.GAME;
+    }
+
     public void PauseGame()
     {
         isPaused = true;
@@ -103,7 +114,8 @@ public class GameManager : MonoBehaviour {
 
         previousFixedDeltaTime = Time.fixedDeltaTime;
         Time.fixedDeltaTime = 0f;
-    }
+        uiState = UIState.PAUSE;
+}
 
     public void UnpauseGame()
     {
@@ -112,6 +124,7 @@ public class GameManager : MonoBehaviour {
 
         isPaused = false;
         allowGameplayInputs = true;
+        uiState = UIState.GAME;
     }
 
     public void MuteSound()

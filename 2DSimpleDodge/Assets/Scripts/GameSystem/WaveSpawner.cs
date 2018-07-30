@@ -22,27 +22,34 @@ public class WaveSpawner : MonoBehaviour {
     private float lastwaveTime = 0f;
     public int nextDifficulty = 1;
 
+    private GameManager gm;
+
     private void Start()
     {
+        gm = FindObjectOfType<GameManager>();
+
         lastwaveTime = Time.time;
         ResetList();
     }
 
     private void Update()
     {
-        if(Time.time - lastwaveTime > timeBetweenWaves)
+        if (gm.gameStarted)
         {
-            SpawnWave();
-        }
-        else
-        {
-            lastwaveTime -= Time.deltaTime;
-        }
+            if (Time.time - lastwaveTime > timeBetweenWaves)
+            {
+                SpawnWave();
+            }
+            else
+            {
+                lastwaveTime -= Time.deltaTime;
+            }
 
-        //Debug para aumento de dificuldade
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            RaiseDifficulty(nextDifficulty);
+            //Debug para aumento de dificuldade
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                RaiseDifficulty(nextDifficulty);
+            }
         }
     }
 
