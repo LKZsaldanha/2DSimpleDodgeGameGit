@@ -14,10 +14,12 @@ public class PlayerCollision : MonoBehaviour {
     public Score scoreObject;
 
     private GameManager gm;
+    private PlayerAnimation pAnim;
 
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        pAnim = FindObjectOfType<PlayerAnimation>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,10 +35,12 @@ public class PlayerCollision : MonoBehaviour {
             life--;
             if (life > 0)
             {
-
+                pAnim.Hit(true, true);
             }
             else
             {
+                pAnim.Hit(true, false);
+
                 Die();
             }
 
@@ -45,9 +49,12 @@ public class PlayerCollision : MonoBehaviour {
         {
             Vector3 collectPosition = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
             CreateCollectEffect(collectPosition);
+
+            pAnim.Hit(false, true);
+
             scoreObject.AddPoints(collectablePointValue);
 
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);            
         }
     }
 

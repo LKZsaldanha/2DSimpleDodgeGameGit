@@ -8,7 +8,6 @@ public class PlayerFixedMovement : MonoBehaviour
     public int numberOfLanes = 5;
     public float laneWidth = 2f;
 
-
     private float[] laneX;
     private int desiredLaneIndex = 0;
 

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114949773676269452}
   - component: {fileID: 114132136452868114}
   - component: {fileID: 114558093584043592}
+  - component: {fileID: 114091761842643104}
   m_Layer: 0
   m_Name: Player_FixedMovement
   m_TagString: Untagged
@@ -80,6 +81,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!114 &114091761842643104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1875544328635364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e854b37e1b37a6b4aac929dfe935225c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoppingAnimDistance: 0.1
 --- !u!114 &114132136452868114
 MonoBehaviour:
   m_ObjectHideFlags: 1
