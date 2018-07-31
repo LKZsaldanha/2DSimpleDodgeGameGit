@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e854b37e1b37a6b4aac929dfe935225c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingAnimDistance: 0.1
+  stoppingAnimDistance: 0.05
 --- !u!114 &114132136452868114
 MonoBehaviour:
   m_ObjectHideFlags: 1

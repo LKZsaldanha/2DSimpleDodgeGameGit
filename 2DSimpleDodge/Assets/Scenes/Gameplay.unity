@@ -1420,6 +1420,11 @@ Prefab:
       propertyPath: scoreObject
       value: 
       objectReference: {fileID: 2055476496}
+    - target: {fileID: 114091761842643104, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4,
+        type: 2}
+      propertyPath: stoppingAnimDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4, type: 2}
   m_IsPrefabAsset: 0

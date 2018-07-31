@@ -21,22 +21,23 @@ public class PlayerAnimation : MonoBehaviour
     {
         deltaPosition = (lastPosition - rb.position).magnitude;
 
+        
         if (deltaPosition < stoppingAnimDistance)
         {
-            //Idle
-            GetComponent<Animator>().SetTrigger("Idle");
+            //Idle            
+            GetComponent<Animator>().SetBool("Walking", false);
         }
         else
         {
+            GetComponent<Animator>().SetBool("Walking", true);
+
             //Moving
             if (lastPosition.x - rb.position.x < 0)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
-                GetComponent<Animator>().SetTrigger("Walk");
             }
             else if (lastPosition.x - rb.position.x > 0)
             {
-                GetComponent<Animator>().SetTrigger("Walk");
                 GetComponent<SpriteRenderer>().flipX = false;
             }            
         }
