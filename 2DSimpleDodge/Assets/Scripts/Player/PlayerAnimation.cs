@@ -24,17 +24,20 @@ public class PlayerAnimation : MonoBehaviour
         if (deltaPosition < stoppingAnimDistance)
         {
             //Idle
+            GetComponent<Animator>().SetTrigger("Idle");
         }
         else
         {
             //Moving
             if (lastPosition.x - rb.position.x < 0)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                GetComponent<SpriteRenderer>().flipX = true;
+                GetComponent<Animator>().SetTrigger("Walk");
             }
             else if (lastPosition.x - rb.position.x > 0)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                GetComponent<Animator>().SetTrigger("Walk");
+                GetComponent<SpriteRenderer>().flipX = false;
             }            
         }
 
@@ -50,15 +53,18 @@ public class PlayerAnimation : MonoBehaviour
             if (harmful)
             {
                 //Get hit
+                GetComponent<Animator>().SetTrigger("Died");
             }
             else
             {
                 //Collect
+                GetComponent<Animator>().SetTrigger("Collect");
             }
         }
         else
         {
             //Die
+            GetComponent<Animator>().SetTrigger("Died");
         }
     }
 
