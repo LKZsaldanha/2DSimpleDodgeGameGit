@@ -14,6 +14,9 @@ public class UIController : MonoBehaviour {
     public Text highScoreLabel;
     public Text endCurrentScoreLabel;
 
+    public GameObject ResumeSoundButton;
+    public GameObject MuteSoundButton;
+
     private void Start ()
     {
         gm = FindObjectOfType<GameManager>();
@@ -27,12 +30,15 @@ public class UIController : MonoBehaviour {
         }
     }
 
-    private void UIUpdateInfo()
+    public void UIUpdateInfo()
     {
         //setar visual dos botões de audio
 
         highScoreLabel.text = gm.highScore.ToString();
         endCurrentScoreLabel.text = GetComponent<Score>().score.ToString();
+
+        MuteSoundButton.SetActive(gm.soundOn);
+        ResumeSoundButton.SetActive(!gm.soundOn);
     }
 
     private void SetActiveUI()
