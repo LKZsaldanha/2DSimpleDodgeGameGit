@@ -16,10 +16,17 @@ public class UIController : MonoBehaviour {
 
     public GameObject ResumeSoundButton;
     public GameObject MuteSoundButton;
+    public GameObject QuitButton;
 
     private void Start ()
     {
         gm = FindObjectOfType<GameManager>();
+        /* HIDE EXIT BUTTON
+        if (!gm.mobileVersion)
+        {
+            QuitButton.SetActive(false);
+        }
+        */
     }
 
     private void Update()

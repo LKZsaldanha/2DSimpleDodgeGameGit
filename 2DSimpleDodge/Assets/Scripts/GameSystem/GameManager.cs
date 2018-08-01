@@ -43,15 +43,14 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (gameStarted)
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                UnpauseGame();
-            }
-            else
-            {
-                PauseGame();
+                if (!isPaused)
+                { 
+                    PauseGame();
+                }
             }
         }
 
@@ -70,6 +69,10 @@ public class GameManager : MonoBehaviour {
         {
             RestartLevel();
         }
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
     
     public void EndGame()
