@@ -1320,22 +1320,9 @@ Prefab:
       propertyPath: scoreObject
       value: 
       objectReference: {fileID: 2055476496}
-    - target: {fileID: 114091761842643104, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4,
-        type: 2}
-      propertyPath: stoppingAnimDistance
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4188990273419812, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4188990273419812, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4188990273419812, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
+    - target: {fileID: 1875544328635364, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcde9fdfb37a6e04aafd125d6e2f2ab4, type: 2}
@@ -1530,7 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d434e2db7c7594ba4b0042910061cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobileVersion: 1
+  mobileVersion: 0
   mobileInputType: 1
   highScore: 0
   soundOn: 1

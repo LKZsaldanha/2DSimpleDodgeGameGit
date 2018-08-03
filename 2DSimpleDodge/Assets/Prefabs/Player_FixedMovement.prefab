@@ -42,7 +42,7 @@ Transform:
   m_GameObject: {fileID: 1875544328635364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,9 +79,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.42}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.27
 --- !u!95 &95175523524747828
 Animator:
   serializedVersion: 3
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e854b37e1b37a6b4aac929dfe935225c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingAnimDistance: 0.05
+  stoppingAnimDistance: 0.1
 --- !u!114 &114132136452868114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,6 +156,7 @@ MonoBehaviour:
   collectEffect: {fileID: 4682459639690772, guid: aaa26804266277741ac30dbdaddf3cd0,
     type: 2}
   collectablePointValue: 1
+  collectablePosY: 1
   scoreObject: {fileID: 0}
 --- !u!212 &212146715552912002
 SpriteRenderer:

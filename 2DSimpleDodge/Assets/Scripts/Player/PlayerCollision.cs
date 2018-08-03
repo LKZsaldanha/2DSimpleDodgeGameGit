@@ -29,7 +29,7 @@ public class PlayerCollision : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag(obstacleTag))
         {
-            Vector3 hitPosition = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, 0);
+            Vector3 hitPosition = new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, -5);
             CreateHitEffect(hitPosition);
             scoreObject.RemovePoints(obstaclePointReduction);
 
