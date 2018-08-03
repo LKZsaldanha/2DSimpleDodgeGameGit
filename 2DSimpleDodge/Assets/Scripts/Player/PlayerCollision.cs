@@ -10,13 +10,14 @@ public class PlayerCollision : MonoBehaviour {
     public string collectableTag = "Collectable";
     public Transform collectEffect;
     public int collectablePointValue = 1;
+    public float collectablePosY;
 
     public Score scoreObject;
 
     private GameManager gm;
     private PlayerAnimation pAnim;
 
-    public float posY;
+    
 
     private void Start()
     {
@@ -67,7 +68,7 @@ public class PlayerCollision : MonoBehaviour {
 
     private void CreateCollectEffect(Vector3 _position)
     {
-        Instantiate(collectEffect, new Vector3(_position.x, _position.y + posY, _position.z), Quaternion.identity);
+        Instantiate(collectEffect, new Vector3(_position.x, _position.y + collectablePosY, _position.z), Quaternion.identity);
     }
 
     private void Die()
