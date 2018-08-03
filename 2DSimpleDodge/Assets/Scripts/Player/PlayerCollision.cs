@@ -16,6 +16,8 @@ public class PlayerCollision : MonoBehaviour {
     private GameManager gm;
     private PlayerAnimation pAnim;
 
+    public float posY;
+
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
@@ -65,7 +67,7 @@ public class PlayerCollision : MonoBehaviour {
 
     private void CreateCollectEffect(Vector3 _position)
     {
-        Instantiate(collectEffect, _position, Quaternion.identity);
+        Instantiate(collectEffect, new Vector3(_position.x, _position.y + posY, _position.z), Quaternion.identity);
     }
 
     private void Die()
